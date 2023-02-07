@@ -1,6 +1,6 @@
 import { Details } from "./Details";
 import { Location } from "./Location";
-import { Main } from "./Main";
+import { Temperature } from "./Temperature";
 import { Background } from "./GlobalStyle";
 import { useData } from "./useData";
 import { Form } from "./Form";
@@ -21,7 +21,7 @@ function App() {
               city={data.city}
               country={data.country}
             />
-            <Main temperature={data.temperature}
+            <Temperature temperature={data.temperature}
               feelsLike={data.feelsLike}
               description={data.description}
               icon={data.icon}
