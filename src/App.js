@@ -12,7 +12,9 @@ function App() {
   return (
     <>
       <Background>
-        <Form submitSearch={onSubmit} />
+        <Form
+          submitSearch={onSubmit}
+        />
         {/*loading ? <Loader /> : */}
         {/*error ? <Error/> : */}
         {data &&
@@ -21,7 +23,8 @@ function App() {
               city={data.city}
               country={data.country}
             />
-            <Temperature temperature={data.temperature}
+            <Temperature
+              temperature={data.temperature}
               feelsLike={data.feelsLike}
               description={data.description}
               icon={data.icon}
@@ -32,8 +35,10 @@ function App() {
               pressure={data.pressure}
               clouds={data.clouds}
               sunrise={data.sunrise}
-              sunset={data.sunset} />
-          </>}
+              sunset={data.sunset}
+            />
+          </>
+        }
       </Background>
     </>
   );
