@@ -4,7 +4,7 @@ export const extractData = data => ({
   temperature: `${Math.round(data.main.temp)} °C`,
   feelsLike: ` ${Math.round(data.main.feels_like)}°C`,
   description: data.weather[0].description,
-  icon: `/icons/${data.weather[0].icon}.png`,
+  icon: `simple-weather-app/icons/${data.weather[0].icon}.png`,
   wind: `${data.wind.speed} m/s`,
   humidity: `${data.main.humidity} %`,
   pressure: `${data.main.pressure} hPa`,
