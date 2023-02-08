@@ -30,6 +30,7 @@ function App() {
             alt={"error"}
             src={"error"}
           /> :
+            data &&
             (<>
               <Location
                 city={data.city}
