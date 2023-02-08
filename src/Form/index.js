@@ -8,13 +8,18 @@ export const Form = ({ submitSearch }) => {
 
   const onFormSubmit = (event) => {
     event.preventDefault();
+
+    if (!location || location.trim() === "")
+      return setLocation("");
+
     submitSearch(location);
     setLocation("");
   }
 
   return (
     <StyledForm
-      onSubmit={onFormSubmit}>
+      onSubmit={onFormSubmit}
+    >
       <Input
         type="text"
         value={location}
@@ -23,7 +28,8 @@ export const Form = ({ submitSearch }) => {
       >
       </Input>
       <StyledButton
-        onClick={onFormSubmit}>
+        onClick={onFormSubmit}
+      >
         <Arrow />
       </StyledButton>
     </StyledForm>
