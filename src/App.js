@@ -24,33 +24,32 @@ function App() {
             alt={"loading"}
             src={"loading"}
           />
-        :
-        error === true ? <State
-          info={"Location not found"}
-          alt={"error"}
-          src={"error"}
-        /> : 
-        data && !loading &&
-          <>
-            <Location
-              city={data.city}
-              country={data.country}
-            />
-            <Temperature
-              temperature={data.temperature}
-              feelsLike={data.feelsLike}
-              description={data.description}
-              icon={data.icon}
-            />
-            <Details
-              humidity={data.humidity}
-              wind={data.wind}
-              pressure={data.pressure}
-              clouds={data.clouds}
-              sunrise={data.sunrise}
-              sunset={data.sunset}
-            />
-          </>
+          :
+          error === true ? <State
+            info={"Location not found"}
+            alt={"error"}
+            src={"error"}
+          /> :
+            (<>
+              <Location
+                city={data.city}
+                country={data.country}
+              />
+              <Temperature
+                temperature={data.temperature}
+                feelsLike={data.feelsLike}
+                description={data.description}
+                icon={data.icon}
+              />
+              <Details
+                humidity={data.humidity}
+                wind={data.wind}
+                pressure={data.pressure}
+                clouds={data.clouds}
+                sunrise={data.sunrise}
+                sunset={data.sunset}
+              />
+            </>)
         }
       </Background>
     </>
