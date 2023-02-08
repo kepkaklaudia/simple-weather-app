@@ -17,7 +17,7 @@ function App() {
         <Form
           submitSearch={onSubmit}
         />
-        {loading === true ?
+        {loading ?
           <State
             info={"Loading"}
             additional={<Loader />}
@@ -25,13 +25,13 @@ function App() {
             src={"loading"}
           />
           :
-          error === true ? <State
+          error ? <State
             info={"Location not found"}
             alt={"error"}
             src={"error"}
           /> :
-            data &&
-            (<>
+           ( data &&
+            <>
               <Location
                 city={data.city}
                 country={data.country}
