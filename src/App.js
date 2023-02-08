@@ -8,7 +8,8 @@ import { State } from "./States";
 import { Loader } from "./States/Loader";
 
 function App() {
-  const { loading, error, data, submitRequest } = useData();
+  const { weatherData, submitRequest } = useData();
+  const { data, status } = weatherData;
   const onSubmit = value => submitRequest(value);
 
   return (
@@ -17,7 +18,7 @@ function App() {
         <Form
           submitSearch={onSubmit}
         />
-        {loading ?
+        {status === "loading" ?
           <State
             info={"Loading"}
             additional={<Loader />}
@@ -25,32 +26,32 @@ function App() {
             src={"loading"}
           />
           :
-          error ? <State
+          status === "error" ? <State
             info={"Location not found"}
             alt={"error"}
             src={"error"}
           /> :
-           ( data &&
-            <>
-              <Location
-                city={data.city}
-                country={data.country}
-              />
-              <Temperature
-                temperature={data.temperature}
-                feelsLike={data.feelsLike}
-                description={data.description}
-                icon={data.icon}
-              />
-              <Details
-                humidity={data.humidity}
-                wind={data.wind}
-                pressure={data.pressure}
-                clouds={data.clouds}
-                sunrise={data.sunrise}
-                sunset={data.sunset}
-              />
-            </>)
+            (data &&
+              <>
+                <Location
+                  city={data.city}
+                  country={data.country}
+                />
+                <Temperature
+                  temperature={data.temperature}
+                  feelsLike={data.feelsLike}
+                  description={data.description}
+                  icon={data.icon}
+                />
+                <Details
+                  humidity={data.humidity}
+                  wind={data.wind}
+                  pressure={data.pressure}
+                  clouds={data.clouds}
+                  sunrise={data.sunrise}
+                  sunset={data.sunset}
+                />
+              </>)
         }
       </Background>
     </>
