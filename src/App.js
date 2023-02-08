@@ -4,6 +4,8 @@ import { Temperature } from "./Temperature";
 import { Background } from "./GlobalStyle";
 import { useData } from "./useData";
 import { Form } from "./Form";
+import { State } from "./States";
+import { Loader } from "./States/Loader";
 
 function App() {
   const { loading, error, data, submitRequest } = useData();
@@ -15,9 +17,20 @@ function App() {
         <Form
           submitSearch={onSubmit}
         />
-        {/*loading ? <Loader /> : */}
-        {/*error ? <Error/> : */}
-        {data &&
+        {error === true && <State
+          info={"Location not found"}
+          alt={"error"}
+          src={"error"}
+        />}
+        {loading &&
+          <State
+            info={"Loading"}
+            additional={<Loader />}
+            alt={"loading"}
+            src={"loading"}
+          />
+        }
+        {data && !loading &&
           <>
             <Location
               city={data.city}
