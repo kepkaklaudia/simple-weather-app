@@ -21,6 +21,7 @@ At the top we can read the entered city and the country in which it is located. 
 
 ## Responsive version
 The application adapts to the dimensions of the screen. The data is displayed correctly on both tablets and mobile phones.
+
 ![gifResponsive](images/responsive.gif)
 
 ## API Data
