@@ -7,19 +7,22 @@ export const useData = () => {
   const [error, setError] = useState(false);
   const [data, setData] = useState();
 
-  const submitRequest = (location) => {
+  const submitRequest = async location => {
+    setError(false)
     setLoading(true)
     const url = `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&appid=${process.env.REACT_APP_API_KEY}`
-    axios.get(url).then((response) => {
-      const extractedData = extractData(response.data)
-      setData(extractedData)
+    try {
+      const response = await axios(url);
+      setTimeout(() => {
+        setLoading(false);
+        const extractedData = extractData(response.data);
+        setData(extractedData);
+      }, 2000);
+    } catch (error) {
       setLoading(false)
-      if (!response.data || response.data.length === 0) {
-        setLoading(false)
-        setError(true)
-      }
-    })
-  };
+      setError(true)
+    }
+  }
 
   return {
     loading,
