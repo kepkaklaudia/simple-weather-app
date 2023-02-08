@@ -5,7 +5,7 @@ export const State = ({ info, additional, alt, src, }) => (
     <Wrapper>
       <Details>
         <p>{info}</p>
-        <Image alt={alt} src={`simple-weather-app/icons/${src}.png`} />
+        <Image alt={alt} src={`icons/${src}.png`} />
         {additional}
       </Details>
     </Wrapper>
