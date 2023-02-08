@@ -25,6 +25,7 @@ export const Form = ({ submitSearch }) => {
         value={location}
         onChange={onInputChange}
         placeholder="Enter location"
+        autoFocus
       >
       </Input>
       <StyledButton
