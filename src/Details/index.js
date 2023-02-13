@@ -1,31 +1,42 @@
 import { Wrapper } from "./styled";
 import { Detail, Text } from "./styled";
 
-export const Details = ({ humidity, wind, pressure, clouds, sunrise, sunset }) => (
-  <Wrapper>
-    <Detail>
-      <Text>humidity</Text>
-      <Text>{humidity}</Text>
-    </Detail>
-    <Detail>
-      <Text>wind</Text>
-      <Text>{wind}</Text>
-    </Detail>
-    <Detail>
-      <Text>pressure</Text>
-      <Text>{pressure}</Text>
-    </Detail>
-    <Detail>
-      <Text>clouds</Text>
-      <Text>{clouds}</Text>
-    </Detail>
-    <Detail>
-      <Text>sunrise</Text>
-      <Text>{sunrise}</Text>
-    </Detail>
-    <Detail>
-      <Text>sunset</Text>
-      <Text>{sunset}</Text>
-    </Detail>
-  </Wrapper>
-)
+export const Details = ({ humidity, wind, pressure, clouds, sunrise, sunset }) => {
+  const details = [
+    {
+      name: "humidity",
+      value: humidity
+    },
+    {
+      name: "wind",
+      value: wind
+    },
+    {
+      name: "pressure",
+      value: pressure
+    },
+    {
+      name: "clouds",
+      value: clouds
+    },
+    {
+      name: "sunrise",
+      value: sunrise
+    },
+    {
+      name: "sunset",
+      value: sunset
+    },
+  ];
+
+  return (
+    <Wrapper>
+      {details.map(({ name, value }) => (
+        <Detail key={name}>
+          <Text>{name}</Text>
+          <Text>{value}</Text>
+        </Detail>
+      ))}
+    </Wrapper>
+  )
+};
